@@ -90,6 +90,22 @@ class QuadraticLoss:
         self.dx = (self.x - self.label) / self.x.shape[0]  # 2被抵消掉了
         return self.dx
 
+class CrossEntropyLoss:
+    def __init__(self):
+        pass
+
+    def forward(self,x, label):
+        self.x = x
+        self.label = np.zeros_like(x)
+        for a, b in zip(self.label, label):
+            a[b] = 1
+        self.loss = np.nan_to_num(-self.label * np.log(x) - ((1-self.label)*np.log(1-x))) # np.nan_to_num()避免log(0)得到负无穷的情况
+        self.loss = np.sum(self.loss)/x.shape[0]
+        return self.loss
+
+    def backward(self):
+        self.dx = (self.x - self.label)/self.x/(1-self.x)  # 分母会与Sigmoid层中的对应部分抵消
+        return  self.dx
 
 class Accuracy:
     def __init__(self):
