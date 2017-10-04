@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://E:/PracticePro/PythonDir/.idea/PythonDir.iml" filepath="E:/PracticePro/PythonDir/.idea/PythonDir.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/PythonTest.iml" filepath="$PROJECT_DIR$/.idea/PythonTest.iml" />
     </modules>
   </component>
